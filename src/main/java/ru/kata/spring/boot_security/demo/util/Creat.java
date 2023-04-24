@@ -14,8 +14,9 @@ import java.util.Set;
 
 @Component
 public class Creat {
-    private RoleService roleRepository;
-    private UserService userRepository;
+
+    private final RoleService roleRepository;
+    private final UserService userRepository;
 
     Creat(UserService userRepository,RoleService roleRepository){
         this.roleRepository = roleRepository;

@@ -14,7 +14,6 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 import java.util.Collection;
-import java.util.HashSet;
 import java.util.Set;
 
 @Entity
@@ -23,7 +22,7 @@ public class User implements UserDetails {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private  Long id;
 
     @Column(name = "name")
     private String name;
@@ -76,21 +75,6 @@ public class User implements UserDetails {
 
     public void setRoles(Set<Role> roles) {
         this.roles = roles;
-    }
-
-    public void setRoles(String[] roles) {
-        Set<Role> roleSet = new HashSet<>();
-        for (String role : roles) {
-            if (role != null) {
-                if (role.equals("ROLE_ADMIN")) {
-                    roleSet.add(new Role(role, 1));
-                }
-                if (role.equals("ROLE_USER")) {
-                    roleSet.add(new Role(role, 2));
-                }
-            }
-        }
-        this.roles = roleSet;
     }
 
 
